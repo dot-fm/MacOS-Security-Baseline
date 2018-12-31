@@ -1,6 +1,7 @@
-# macOS-Baseline-Security
-macOS 10.14.x OOB Basic security guidelines and Best Practices Common Guidelines 
+# Baseline Considerations and commonly accepted best practices for usage with Apple Mac's running macOS 10.14.x 
+
 # Sec-Baseline.md  
+
 
 # Baseline Security for Modern Apple Macs running macOS Mojave 10.14.x (darwin kernel 18.0)
 This Program is intended AS IS.
@@ -11,40 +12,6 @@ This program and its contents are merely intended as a 'baseline' secure general
 To reiterate: DO NOT, type these command blindly without prior knowledge and full understanding of their outcome.
 In no way, shape, form or factor am i responsible for whatever happens to anyone whom decides to proceed with the following commands.
 
-
-set -euo pipefail
-
-IFS=$'\n\t'
-
-tput sgr0
-
-
-readonly RED="$(tput setaf 1)"
-readonly RESET="$(tput sgr0)"
-readonly BOLD="$(tput bold)"
-
-function macos_compataibility_check {
-
-local -r supported_macos_version="10.14"
-local os
-local current_macos_version
-
-os="$(uname -s)"
-
-if [["${os}" != "Darwin"]]l then
-	echo"[SYSTEM NOTCOMPATIBLE]"
-	exit 1
-fi
-
-curent_macos_versio="$(sw_vers)" | awk -F '.'	'{print $1 "." $2}'
-
-if ["${current_macos_version}" !="${supported_macos_version}"]; then
-	echo "All systems Go."
-	echo "Moving Forward ${current_macos_version}"
-	echo " This program will require elivated priviledges, if you do not posses adminsitrative rights, abort."
-	exit 1
-fi
-}
 
 
 echo " enabling SIP Master Assesments Enabled"
@@ -138,7 +105,7 @@ function parse_basic_desktop_security_provisions{
 }
 
 echo "baisc power mgmt essentials to evade Cold Boot Attacks and EvilMaid exploits are not only for the paranoid but also for those whose concern extend throughout apple's extensive and apprently
-pervasive usage of The iCloud Systems` regardless of powerlevel,user consent, utilization or user knowledege(except for those whom read the fineprint :o|
+pervasive usage of The iCloud Systems regardless of powerlevel,user consent, utilization or user knowledege(except for those whom read the fineprint :o|
 echo "these security measures ensure, at base operating system level that your computer's data should remain within your contorl : Nevertheless,
 the utilizing third party firewall systems are not only commomn and good practice but, to those serious about security: consider dedicating an entire separate machine towards controlling your systems's connections and possible outreach"
 echo "for further information look into pfsense,opensese,ipfire or other WAF Based Programs (If you're compfortable enough handing out your data to another third party and their 'security solutions', please remember that opensource'd codebased systems are always
@@ -194,4 +161,9 @@ defaults write NSGlobalDomain AppleAntiAliasingThreshold -int 4
  defaults write com.apple.finder ShowStatusBar -bool true
  defaults write com.apple.finder
 ───────┴───────────────────────────────────────────────
-f
+
+# the overall project has been compiled from both experience and an incredible amount of numerous sources.
+most notably it could not have been possible without the previous work done by 
+dr.druh (macOS security basics) (pioneer of the initial 'macOS security "for the paranoids, explained for dummies by one seriously curious yet astute freaking freaking hacker/bsdnix guru'")
+alichtman/stronghold (one of the first simple, concise and trustworthy "mac-sec"-centred automation frameworks for gh enthusiasts.)
+mathiasbynens's notoriously and outstanding compendium of his own dotfiles (neverending working in progress) and a true mac/unix composition of useful dotfiles.
