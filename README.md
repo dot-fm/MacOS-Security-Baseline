@@ -1,9 +1,6 @@
-# Baseline Considerations and commonly accepted best practices for usage with Apple Mac's running macOS 10.14.x 
-
 # Sec-Baseline.md  
+Baseline Considerations and commonly accepted best practices for usage with Apple Mac's running macOS 10.14.x (Baseline Security for Modern Apple Macs running macOS Mojave 10.14.x (darwin kernel 18.0))
 
-
-# Baseline Security for Modern Apple Macs running macOS Mojave 10.14.x (darwin kernel 18.0)
 This Program is intended AS IS.
 baseline init for secure macOS systems (as of 10.14.x)
 This program is merely an outline whose guidelines concern hardening, at an extremely simplistic & high-level darwin/macOS system (as ox kernel 18/Mojave base 14.x)
